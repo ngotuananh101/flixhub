@@ -1,0 +1,7 @@
+.input-error {
+    @apply text-red-500;
+}
+
+.input-success {
+    @apply text-green-500;
+}
