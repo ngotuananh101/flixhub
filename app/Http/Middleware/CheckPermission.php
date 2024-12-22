@@ -19,7 +19,7 @@ class CheckPermission
         $routeName = $request->route()->getName();
 
         // If user has role super admin then allow access to all routes
-        if ($user->hasRoles('super-admin')) {
+        if ($user->hasRole('super-admin')) {
             return $next($request);
         }
 

@@ -28,7 +28,18 @@ class LoginController extends Controller
             ]);
         }
 
-        // Redirect to the home page
-        return redirect()->home();
+        // Redirect
+        $user = auth()->user();
+        if ($user->can('admin.home')) {
+            return redirect()->route('admin.home');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
     }
 }

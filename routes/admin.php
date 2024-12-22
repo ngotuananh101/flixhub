@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use \Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -7,7 +8,5 @@ Route::group([
     'prefix' => 'admin',
     'middleware' => ['auth', 'permission']
 ], function () {
-    Route::get('/', function () {
-        return 'Admin dashboard';
-    });
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });

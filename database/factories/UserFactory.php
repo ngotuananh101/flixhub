@@ -25,6 +25,7 @@ class UserFactory extends Factory
     {
         return [
             'avatar' => fake()->imageUrl(),
+            'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('123@123a'),
