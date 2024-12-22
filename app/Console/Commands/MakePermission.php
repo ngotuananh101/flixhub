@@ -32,7 +32,12 @@ class MakePermission extends Command
         foreach ($routes as $route) {
             $name = $route->getName();
             $middleware = $route->middleware();
-            if (in_array('auth', $middleware) && $name && $name !== 'logout') {
+            if (
+                in_array('auth', $middleware)
+                && $name
+                && $name !== 'logout'
+                && $name !== 'admin.'
+            ) {
                 $permissions[] = $name;
             }
         }
@@ -44,6 +49,5 @@ class MakePermission extends Command
             ];
         }, $permissions);
         Permission::insert($permissions);
-        $this->info('Permissions created successfully.');
     }
 }

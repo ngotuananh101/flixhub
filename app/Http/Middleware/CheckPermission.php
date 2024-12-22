@@ -15,6 +15,19 @@ class CheckPermission
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $user = auth()->user();
+        $routeName = $request->route()->getName();
+
+        // If user has role super admin then allow access to all routes
+        if ($user->hasRoles('super-admin')) {
+            return $next($request);
+        }
+
+        // Check if user has permission to access the route
+        if (!$user->can($routeName)) {
+            abort(403, 'Unauthorized');
+        }
+
         return $next($request);
     }
 }
