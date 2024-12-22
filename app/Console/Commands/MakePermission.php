@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Permission;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Route;
 
 class MakePermission extends Command
 {
@@ -25,11 +27,12 @@ class MakePermission extends Command
      */
     public function handle()
     {
-        $routes = \Route::getRoutes();
+        $routes = Route::getRoutes();
         $permissions = [];
         foreach ($routes as $route) {
             $name = $route->getName();
-            if ($name) {
+            $middleware = $route->middleware();
+            if (in_array('auth', $middleware) && $name && $name !== 'logout') {
                 $permissions[] = $name;
             }
         }
@@ -40,7 +43,7 @@ class MakePermission extends Command
                 'guard_name' => 'web',
             ];
         }, $permissions);
-        \Spatie\Permission\Models\Permission::insert($permissions);
+        Permission::insert($permissions);
         $this->info('Permissions created successfully.');
     }
 }
