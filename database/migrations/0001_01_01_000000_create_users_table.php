@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('avatar')->nullable();
             $table->string('email')->unique();
+            $table->string('google_id')->nullable()->unique();
+            $table->string('facebook_id')->nullable()->unique();
+            $table->string('spotify_id')->nullable()->unique();
+            $table->string('spotify_access_token')->nullable();
+            $table->string('spotify_refresh_token')->nullable();
+            $table->timestamp('spotify_expires_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
