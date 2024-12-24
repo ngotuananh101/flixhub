@@ -4,10 +4,10 @@
             <img class="size-[34px]" src="assets/media/app/mini-logo-circle-success.svg" />
         </a>
         <span class="text-lg font-medium text-inverse grow uppercase">
-            Metronic
+            {{ config('app.name') }}
         </span>
     </div>
-    <div class="flex items-center gap-2.5 px-3.5">
+    {{-- <div class="flex items-center gap-2.5 px-3.5">
         <!-- Input -->
         <a class="btn btn-dark btn-sm justify-center min-w-[198px]"
             href="html/demo10/public-profile/projects/3-columns.html">
@@ -20,5 +20,5 @@
             <i class="ki-filled ki-magnifier">
             </i>
         </button>
-    </div>
+    </div> --}}
 </div>

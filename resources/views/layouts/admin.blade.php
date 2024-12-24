@@ -58,9 +58,6 @@
                     <main class="grow" role="content">
                         @yield('content')
                     </main>
-                    <!-- Footer -->
-                    @include('components.admin.footer')
-                    <!-- End of Footer -->
                 </div>
             </div>
             <!-- End of Main -->

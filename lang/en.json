@@ -18,5 +18,15 @@
     "Language": "Language",
     "English": "English",
     "Vietnamese": "Vietnamese",
-    "My Profile": "My Profile"
+    "My Profile": "My Profile",
+    "Analytics": "Analytics",
+    "Settings": "Settings",
+    "Users": "Users",
+    "Roles": "Roles",
+    "Local Search": "Local Search",
+    "Home": "Home",
+    "Local search is a feature that allows users to search for content within your website.": "Local search is a feature that allows users to search for content within your website.",
+    "Print": "Print",
+    "Search method": "Search method",
+    "Which method should be used for search related functionality across the site.": "Which method should be used for search related functionality across the site."
 }
